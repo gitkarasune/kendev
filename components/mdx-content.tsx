@@ -6,12 +6,12 @@ import Counter from "@/components/counter";
 
 type CodeProps = {
     children: string;
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
-function Code({ children, ...props }: CodeProps){
+function Code({ children, ...props }: CodeProps): JSX.Element{
     let codeHTML = highlight(children)
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML}} {...props} />
+    return <code dangerouslySetInnerHTML={{ __html: codeHTML}} {...props} />;
 }
 
 const components = {
@@ -19,13 +19,13 @@ const components = {
     Counter
 }
 
-type MDXContentProps = JSX.IntrinsicAttributes & MDXRemoteProps & {
+interface MDXContentProps extends MDXRemoteProps {
     components?: { [key: string]: React.ComponentType<any> };
 };
 
 export default function MDXContent(
     props: MDXContentProps
-) {
+): JSX.Element {
     return (
         <MDXRemote
             {...props}
