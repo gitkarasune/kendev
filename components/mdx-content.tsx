@@ -6,11 +6,11 @@ import Counter from "@/components/counter";
 
 type CodeProps = {
     children: string;
-    [key: string]: unknown;
+    [key: string]: unknown; // changed to unknown to avoid using any
 }
 
 function Code({ children, ...props }: CodeProps): JSX.Element{
-    let codeHTML = highlight(children)
+    const codeHTML = highlight(children); // used const here as it is never reassigned
     return <code dangerouslySetInnerHTML={{ __html: codeHTML}} {...props} />;
 }
 
@@ -20,7 +20,8 @@ const components = {
 }
 
 interface MDXContentProps extends MDXRemoteProps {
-    components?: { [key: string]: React.ComponentType<any> };
+    components?: { [key: string]: React.ComponentType<unknown> };
+    // use unknown instead of any
 };
 
 export default function MDXContent(
