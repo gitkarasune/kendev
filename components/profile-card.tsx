@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { FaEnvelope, FaLinkedinIn, FaGithub, FaCheckCircle, FaRocket } from 'react-icons/fa'
+import { FaEnvelope, FaLinkedinIn, FaGithub, FaCheckCircle } from 'react-icons/fa'
 
 import Image from 'next/image';
-// import profile from "@/public/Images/authors/profile.jpg"
-// import coverPicture from "@/public/Images/projects/Typing-game.jpg"
 
 interface ProfileCardPros {
     name: string;

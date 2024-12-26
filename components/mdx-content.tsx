@@ -4,7 +4,12 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc"
 
 import Counter from "@/components/counter";
 
-function Code({ children, ...props }: any){
+type CodeProps = {
+    children: string;
+    [key: string]: any;
+}
+
+function Code({ children, ...props }: CodeProps){
     let codeHTML = highlight(children)
     return <code dangerouslySetInnerHTML={{ __html: codeHTML}} {...props} />
 }
@@ -14,8 +19,12 @@ const components = {
     Counter
 }
 
+type MDXContentProps = JSX.IntrinsicAttributes & MDXRemoteProps & {
+    components?: { [key: string]: React.ComponentType<any> };
+};
+
 export default function MDXContent(
-    props: JSX.IntrinsicAttributes & MDXRemoteProps
+    props: MDXContentProps
 ) {
     return (
         <MDXRemote

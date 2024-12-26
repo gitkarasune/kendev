@@ -1,4 +1,4 @@
-//import Projects from "@/components/projects"
+
 import { getProjects } from "@/lib/projects"
 import ProjectSearch from "@/components/project-search"
 

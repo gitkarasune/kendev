@@ -1,7 +1,7 @@
 import Image from "next/image"
 import authorKaraImage from "@/public/Images/authors/profile.jpg"
 import { JSX, SVGProps } from 'react'
-import { FaGithub, FaLinkedinIn, FaCrosshairs, FaTrophy } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaCrosshairs } from 'react-icons/fa'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger, DialogHeader } from "@/components/ui/dialog"
 import {
     HoverCard,
@@ -13,16 +13,13 @@ const navigation = [
     {
         name: 'Linkedin',
         href: 'https://linkedin.com/in/sune-kara',
-        icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-            <FaLinkedinIn />
-        )
+        icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => <FaLinkedinIn {...props} />,
+        
     },
     {
         name: 'Github',
         href: 'https://github.com/gitkarasune',
-        icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-            <FaGithub />
-        )
+        icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => <FaGithub {...props} />, 
     }
 ]
 
@@ -48,7 +45,9 @@ export default function Intro() {
                                 className='text-muted-foreground hover:text-foreground'
                             >
                                 <span className='sr-only'>{item.name}</span>
-                                <item.icon aria-hidden='true' className='h-10 w-10' />
+                                <span aria-hidden='true' className='h-10 w-10'>
+                                {item.icon({})}
+                                </span>
                             </a>
                         ))}
                     </div>

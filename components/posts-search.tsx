@@ -23,7 +23,7 @@ export default function PostsSearch({ posts }: { posts: PostMetadata[]}) {
                     placeholder="Search Posts"
                     className="h-11 w-full xl:w-full xl:mx-auto sm:w-1/2"
                     value={query}
-                    onChange={(e: any) => setQuery(e.target.value)}
+                    onChange={e => setQuery(e.target.value)}
                 />
                 { isFiltered && (
                     <Button

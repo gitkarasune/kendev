@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { FaArrowLeft } from "react-icons/fa"
-import { Button } from "@/components/ui/button"
 
 export default function notFound() {
     return (

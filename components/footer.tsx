@@ -6,16 +6,13 @@ const navigation = [
   {
     name: 'Linkedin',
     href: 'https://linkedin.com/in/sune-kara',
-    icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-      <FaLinkedinIn />
-    )
+    icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => <FaLinkedinIn {...props} />,
   },
   {
     name: 'Github',
     href: 'https://github.com/gitkarasune',
-    icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-      <FaGithub />
-    )
+    icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => 
+      <FaGithub {...props} />, 
   }
 ]
 
@@ -34,7 +31,8 @@ export default function Footer() {
                 className='text-muted-foreground hover:text-foreground'
               >
                 <span className='sr-only'>{item.name}</span>
-                <item.icon aria-hidden='true' className='h-10 w-10'/>
+                <span aria-hidden='true' className='h-10 w-10'></span>
+                {item.icon({})}
               </a>
             ))}
           </div>
